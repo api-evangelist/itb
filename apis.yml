@@ -1,0 +1,81 @@
+---
+aid: itb
+name: Bandung Institute of Technology
+description: >-
+  Institut Teknologi Bandung (ITB) is a public research university in Bandung,
+  Indonesia, ranked #256 in the QS World University Rankings 2025. ITB operates
+  a number of public-facing web systems including an institutional digital
+  library (Ganesha Digital Library / GDL), an academic portal, and a
+  campus-wide single sign-on service. As of this review ITB does not publish a
+  dedicated developer portal or documented public API program; its
+  machine-readable surfaces are limited to a CAS-based SSO endpoint and an
+  institutional repository whose historical OAI-PMH/RSS endpoints no longer
+  resolve after a platform migration. The entries below reflect only what could
+  be verified live and publicly.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/itb/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Indonesia
+  - Authentication
+  - Digital Library
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: itb:sso-cas
+    name: ITB Single Sign-On (CAS)
+    description: >-
+      ITB's campus-wide single sign-on, built on the Apereo CAS (Central
+      Authentication Service) protocol. Applications integrate against the CAS
+      login/validation endpoints to authenticate ITB members. The login
+      endpoint resolves publicly; account provisioning and service
+      registration are restricted to ITB-affiliated applications.
+    humanURL: https://login.itb.ac.id/
+    baseURL: https://login.itb.ac.id/cas/
+    tags: [ Authentication, SSO, CAS, Identity ]
+    properties:
+      - type: Documentation
+        url: https://login.itb.ac.id/
+      - type: Authentication
+        url: https://login.itb.ac.id/cas/login
+  - aid: itb:digilib
+    name: ITB Digital Library (Ganesha Digital Library)
+    description: >-
+      ITB's institutional repository of theses, dissertations, research
+      reports, proceedings, and electronic collections across its faculties,
+      running on the Ganesha Digital Library (GDL) platform. The repository was
+      historically registered as an OAI-PMH data provider, but the previously
+      documented OAI-PMH and RSS endpoints return HTTP 404 after a platform
+      migration, so no current machine-readable harvesting endpoint could be
+      confirmed. The public web interface is browseable without login.
+    humanURL: https://digilib.itb.ac.id/
+    baseURL: https://digilib.itb.ac.id/
+    tags: [ Digital Library, Repository, OAI-PMH, Research, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://lib.itb.ac.id/en/digilib/
+common:
+  - type: Website
+    url: https://itb.ac.id/
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/institut-teknologi-bandung/
+  - type: Authentication
+    url: https://login.itb.ac.id/
+  - type: Plans
+    url: plans/itb-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/itb-rate-limits.yml
+  - type: FinOps
+    url: finops/itb-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

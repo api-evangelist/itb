@@ -1,0 +1,51 @@
+---
+name: Bandung Institute of Technology
+description: Bandung Institute of Technology public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/itb/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 1
+    summary: >-
+      ITB has no public developer portal or documented API program. Verified
+      live: the official site, a CAS-based single sign-on at login.itb.ac.id
+      (CAS login endpoint resolves 200), and the Ganesha Digital Library (GDL)
+      institutional repository (200). The digital library was historically an
+      OAI-PMH data provider, but every previously documented OAI-PMH/RSS path
+      now returns 404 after a platform migration, so no current machine-readable
+      harvesting endpoint could be confirmed. There is no central official ITB
+      GitHub org (only student/department orgs), and api.itb.ac.id /
+      data.itb.ac.id do not resolve. No endpoints were fabricated; gated and
+      dead surfaces are reported honestly.
+    endpoints:
+      - url: https://itb.ac.id/
+        status: 200
+        note: Official institution website.
+      - url: https://login.itb.ac.id/
+        status: 200
+        note: SSO landing page (Apereo CAS).
+      - url: https://login.itb.ac.id/cas/login
+        status: 200
+        note: CAS login endpoint resolves; service registration is restricted.
+      - url: https://digilib.itb.ac.id/
+        status: 200
+        note: Ganesha Digital Library (GDL) institutional repository, public browse.
+      - url: https://lib.itb.ac.id/
+        status: 200
+        note: ITB Library site; documents the digital library service.
+      - url: https://digilib.itb.ac.id/OAI-v2-script.php?verb=Identify
+        status: 404
+        note: Historically documented OAI-PMH endpoint, now dead post-migration.
+      - url: https://digilib.itb.ac.id/gdl.xml
+        status: 404
+        note: Historically documented RSS feed, now dead post-migration.
+      - url: https://akademik.itb.ac.id/
+        status: 200
+        note: Academic portal; gated, no public API.
+      - url: https://api.itb.ac.id/
+        status: 0
+        note: Does not resolve.
+      - url: https://data.itb.ac.id/
+        status: 0
+        note: Does not resolve; no open-data portal found.
