@@ -1,0 +1,50 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "itb": "https://itb.ac.id/ns#",
+    "@vocab": "https://schema.org/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "sameAs": "schema:sameAs",
+    "logo": "schema:logo",
+    "address": "schema:address",
+    "telephone": "schema:telephone",
+    "email": "schema:email",
+    "department": "schema:department",
+    "subOrganization": "schema:subOrganization",
+    "CollegeOrUniversity": "schema:CollegeOrUniversity",
+    "EducationalOrganization": "schema:EducationalOrganization",
+    "WebAPI": "schema:WebAPI",
+    "documentation": "schema:documentation",
+    "potentialAction": "schema:potentialAction",
+    "ssoEndpoint": {
+      "@id": "itb:ssoEndpoint",
+      "@type": "@id"
+    },
+    "digitalLibrary": {
+      "@id": "itb:digitalLibrary",
+      "@type": "@id"
+    }
+  },
+  "@type": "CollegeOrUniversity",
+  "@id": "https://itb.ac.id/",
+  "name": "Bandung Institute of Technology (Institut Teknologi Bandung)",
+  "url": "https://itb.ac.id/",
+  "description": "Public research university in Bandung, Indonesia. Public-facing machine-readable surfaces are limited to a CAS-based single sign-on endpoint and an institutional digital library.",
+  "sameAs": [
+    "https://www.linkedin.com/school/institut-teknologi-bandung/"
+  ],
+  "ssoEndpoint": {
+    "@type": "WebAPI",
+    "name": "ITB Single Sign-On (CAS)",
+    "url": "https://login.itb.ac.id/",
+    "documentation": "https://login.itb.ac.id/"
+  },
+  "digitalLibrary": {
+    "@type": "WebAPI",
+    "name": "ITB Digital Library (Ganesha Digital Library)",
+    "url": "https://digilib.itb.ac.id/",
+    "documentation": "https://lib.itb.ac.id/en/digilib/"
+  }
+}
