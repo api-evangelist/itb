@@ -62,6 +62,8 @@ apis:
       - type: Documentation
         url: https://lib.itb.ac.id/en/digilib/
 common:
+  - type: DomainSecurity
+    url: security/itb-domain-security.yml
   - type: Website
     url: https://itb.ac.id/
   - type: LinkedIn
