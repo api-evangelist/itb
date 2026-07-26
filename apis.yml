@@ -1,4 +1,3 @@
----
 aid: itb
 name: Bandung Institute of Technology
 description: >-
@@ -13,9 +12,21 @@ description: >-
   resolve after a platform migration. The entries below reflect only what could
   be verified live and publicly.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+    - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/itb.png
 url: https://raw.githubusercontent.com/api-evangelist/itb/refs/heads/main/apis.yml
 tags:
   - Education
@@ -26,7 +37,7 @@ tags:
   - Authentication
   - Digital Library
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-07-25'
 specificationVersion: '0.19'
 apis:
   - aid: itb:sso-cas
@@ -39,28 +50,12 @@ apis:
       registration are restricted to ITB-affiliated applications.
     humanURL: https://login.itb.ac.id/
     baseURL: https://login.itb.ac.id/cas/
-    tags: [ Authentication, SSO, CAS, Identity ]
+    tags: [Authentication, SSO, CAS, Identity]
     properties:
       - type: Documentation
         url: https://login.itb.ac.id/
       - type: Authentication
         url: https://login.itb.ac.id/cas/login
-  - aid: itb:digilib
-    name: ITB Digital Library (Ganesha Digital Library)
-    description: >-
-      ITB's institutional repository of theses, dissertations, research
-      reports, proceedings, and electronic collections across its faculties,
-      running on the Ganesha Digital Library (GDL) platform. The repository was
-      historically registered as an OAI-PMH data provider, but the previously
-      documented OAI-PMH and RSS endpoints return HTTP 404 after a platform
-      migration, so no current machine-readable harvesting endpoint could be
-      confirmed. The public web interface is browseable without login.
-    humanURL: https://digilib.itb.ac.id/
-    baseURL: https://digilib.itb.ac.id/
-    tags: [ Digital Library, Repository, OAI-PMH, Research, Metadata ]
-    properties:
-      - type: Documentation
-        url: https://lib.itb.ac.id/en/digilib/
 common:
   - type: DomainSecurity
     url: security/itb-domain-security.yml
@@ -78,6 +73,8 @@ common:
     url: finops/itb-finops.yml
   - type: Review
     url: review.yml
+  - type: ProductPage
+    url: https://digilib.itb.ac.id/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
