@@ -1,0 +1,101 @@
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live probes of ITB's own hosts on 2026-09-01 (journals.itb.ac.id,
+  login.itb.ac.id, digilib.itb.ac.id, shibboleth.itb.ac.id) plus registry
+  lookups against api.crossref.org, api.ror.org and api.datacite.org.
+regime: education
+basis: >-
+  ITB publishes no OpenAPI, AsyncAPI or other specification, so nothing here is
+  derived from a contract — every entry is a direct protocol probe or a registry
+  record. Targets are the Kin Score `education` regime standards[]. Every
+  `conforms: false` means "probed or searched on 2026-09-01 and not found", and
+  the URL and status that establish it are given. Reward-only: no conformance is
+  asserted without a fetched response behind it.
+standards:
+- id: oai-pmh
+  conforms: true
+  evidence: >-
+    https://journals.itb.ac.id/index.php/index/oai?verb=Identify returned 200
+    text/xml with <protocolVersion>2.0</protocolVersion>,
+    <repositoryName>ITB Journals</repositoryName>,
+    <adminEmail>journal@itb.ac.id</adminEmail>,
+    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>,
+    <deletedRecord>persistent</deletedRecord> and gzip/deflate compression
+    declarations. verb=ListSets returned 200 with 20 <setSpec> entries across
+    the ITB journal titles (jmfs, jets, jictra, jpwk and their article,
+    editorial and review subsets). verb=ListRecords&metadataPrefix=oai_dc
+    returned 200. Per-journal base URLs also answer, e.g.
+    https://journals.itb.ac.id/index.php/jmfs/oai?verb=Identify (200). The
+    endpoint runs on ITB's own domain and is administered by ITB; the toolkit
+    behind it is Open Journal Systems 3.2.1.0 (Public Knowledge Project), whose
+    generic contract is not attributed to ITB.
+- id: crossref
+  conforms: true
+  evidence: >-
+    https://api.crossref.org/prefixes/10.5614 (200) resolves prefix 10.5614 to
+    Crossref member 3613, "The Institute for Research and Community Services
+    (LPPM) ITB". https://api.crossref.org/members/3613 (200) reports
+    total-dois 6568 (current 1040, backfile 5528). ITB is the registrant; the
+    Crossref API is Crossref's.
+- id: datacite
+  conforms: false
+  evidence: >-
+    https://api.datacite.org/providers?query=Bandung and
+    https://api.datacite.org/clients?query=Teknologi%20Bandung both returned 200
+    with meta.total 0. No ITB DataCite provider or repository account exists.
+    ITB's DOI registration runs through Crossref, not DataCite.
+- id: saml
+  conforms: false
+  evidence: >-
+    https://login.itb.ac.id/cas/idp/metadata returned 404 (Spring JSON error
+    body) and https://login.itb.ac.id/cas/oidc/.well-known/openid-configuration
+    returned 404, so the CAS server exposes neither SAML IdP metadata nor an
+    OIDC discovery document. No SAML entity descriptor was found on any ITB
+    host.
+- id: shibboleth
+  conforms: false
+  evidence: >-
+    shibboleth.itb.ac.id resolves in DNS to 167.205.50.61 but the host accepts
+    no HTTP or HTTPS connection (curl exit, status 0) on either
+    https://shibboleth.itb.ac.id/ or
+    https://shibboleth.itb.ac.id/idp/shibboleth. Indonesia operates no eduGAIN
+    member federation carrying itb.ac.id entities. ITB's federation surface is
+    Apereo CAS, which is campus SSO rather than SAML federation metadata.
+- id: orcid
+  conforms: false
+  evidence: >-
+    No ORCID identifiers appear in the OAI-PMH oai_dc records returned by
+    https://journals.itb.ac.id/index.php/jmfs/oai?verb=ListRecords&metadataPrefix=oai_dc
+    (200), and no ORCID member or integration claim was found on any ITB host.
+- id: scim
+  conforms: false
+  evidence: >-
+    No /scim or /scim/v2 surface on login.itb.ac.id; ITB publishes no identity
+    provisioning API. Searched and not found.
+- id: lti
+  conforms: false
+  evidence: >-
+    No LTI tool or platform registration surface found. edunex.itb.ac.id (ITB's
+    own LMS, 200) and kuliah.itb.ac.id (200, /portal/) publish no LTI
+    configuration, security contract or JWKS endpoint.
+- id: oneroster
+  conforms: false
+  evidence: >-
+    No OneRoster endpoint found. api.itb.ac.id and data.itb.ac.id do not resolve
+    (status 0); akademik.itb.ac.id is a gated academic portal with no roster
+    API.
+- id: ed-fi
+  conforms: false
+  evidence: >-
+    No Ed-Fi ODS/API surface found on any ITB host. Ed-Fi is a US K-12 data
+    standard and is not in use at ITB. Searched and not found.
+- id: caliper
+  conforms: false
+  evidence: >-
+    No Caliper Analytics sensor or event-store endpoint found on
+    edunex.itb.ac.id or kuliah.itb.ac.id. Searched and not found.
+- id: qti
+  conforms: false
+  evidence: >-
+    No QTI assessment interchange surface found. Searched and not found.

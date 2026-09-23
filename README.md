@@ -64,7 +64,7 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Institut Teknologi Bandung (ITB) is a public research university in Bandung, Indonesia, ranked #256 in the QS World University Rankings 2025. This repository catalogs ITB's public developer and API footprint as an [APIs.json](https://apisjson.org) provider profile. ITB does not publish a dedicated developer portal or documented public API program; its verifiable machine-readable surfaces are limited to a CAS-based single sign-on service and an institutional digital library.
+Institut Teknologi Bandung (ITB) is a public technical university in Bandung, Indonesia. This repository catalogs ITB's public developer and API footprint as an [APIs.json](https://apisjson.org) provider profile. ITB publishes no developer portal, no API gateway and no specification of any kind. Its verifiable institution-operated machine-readable surfaces are two protocol endpoints with no contract behind them — Apereo CAS ticket validation at `login.itb.ac.id` and a live OAI-PMH 2.0 data provider at `journals.itb.ac.id` — plus registry memberships in Crossref and ROR.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/itb/refs/heads/main/apis.yml
 - Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=itb-api-evangelist&utm_content=repo
@@ -77,12 +77,16 @@ Institut Teknologi Bandung (ITB) is a public research university in Bandung, Ind
 
 ## Tags
 
-Education, Higher Education, University, Research, Indonesia, Authentication, Digital Library
+Education, Higher Education, University, Institute of Technology, Research, Indonesia, Southeast Asia, Authentication, Single Sign-On, Scholarly Publishing, OAI-PMH, Digital Library, Research Repository
 
 ## APIs
 
-- **ITB Single Sign-On (CAS)** — Campus-wide single sign-on built on the Apereo CAS protocol. Docs: https://login.itb.ac.id/
-- **ITB Digital Library (Ganesha Digital Library)** — Institutional repository of theses, dissertations, and research on the GDL platform; historical OAI-PMH/RSS endpoints no longer resolve. Docs: https://lib.itb.ac.id/en/digilib/
+Every entry carries an `x-operator` recording **who runs the thing it describes**, which for a university is rarely the same answer as who the data belongs to.
+
+- **ITB Single Sign-On (CAS)** — `x-operator: institution`. Campus-wide single sign-on built on the Apereo CAS protocol; `/cas/p3/serviceValidate` returns machine-readable `cas:serviceResponse` XML. Docs: https://login.itb.ac.id/
+- **ITB Journals OAI-PMH** — `x-operator: institution`. Live, unauthenticated OAI-PMH 2.0 data provider across 20 journal sets, on ITB's own host and administered by ITB (`journal@itb.ac.id`). The software is Open Journal Systems 3.2.1.0 from the Public Knowledge Project, so PKP's generic OJS contract is deliberately **not** attributed to ITB. Base URL: https://journals.itb.ac.id/index.php/index/oai
+- **Crossref Membership (LPPM ITB)** — `x-operator: registry`. Member 3613, DOI prefix 10.5614, 6,568 DOIs. A membership fact about ITB, not an ITB-operated API.
+- **ROR Registration** — `x-operator: registry`. https://ror.org/00apj8t60
 
 ## Plans
 
@@ -99,13 +103,17 @@ Education, Higher Education, University, Research, Indonesia, Authentication, Di
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-09-01
 
 ## Common Properties
 
 - Website: https://itb.ac.id/
 - LinkedIn: https://www.linkedin.com/school/institut-teknologi-bandung/
 - Authentication: https://login.itb.ac.id/
+- Research Repository: https://digilib.itb.ac.id/
+- GitHub Organization: https://github.com/STEI-ITB
+- Blog: https://itb.ac.id/berita
+- Conformance: [conformance/itb-conformance.yml](conformance/itb-conformance.yml)
 - Plans: [plans/itb-plans-pricing.yml](plans/itb-plans-pricing.yml)
 - Rate Limits: [rate-limits/itb-rate-limits.yml](rate-limits/itb-rate-limits.yml)
 - FinOps: [finops/itb-finops.yml](finops/itb-finops.yml)
@@ -113,12 +121,16 @@ Education, Higher Education, University, Research, Indonesia, Authentication, Di
 
 ## Notes
 
-- No public developer portal or documented API program was found for ITB.
-- The CAS SSO login endpoint (https://login.itb.ac.id/cas/login) resolves (HTTP 200), but service registration and account provisioning are restricted to ITB-affiliated applications.
-- The Ganesha Digital Library (GDL) repository is publicly browseable, but its previously documented OAI-PMH endpoint (`OAI-v2-script.php`) and RSS feed (`gdl.xml`) now return HTTP 404 after a platform migration; no current harvesting endpoint could be confirmed.
-- There is no central official ITB GitHub organization — only student- and department-run orgs (e.g., STEI-ITB, HMIF ITB, GDSC ITB, PPTIK).
-- `api.itb.ac.id` and `data.itb.ac.id` do not resolve; no open-data portal was found.
-- All entries reflect only surfaces verified live as of 2026-06-03. No endpoints were fabricated.
+- ITB publishes **no developer portal, no API gateway, no OpenAPI/AsyncAPI/apis.json, no `llms.txt` and no API terms of service**. `api.itb.ac.id` and `data.itb.ac.id` do not resolve; no open-data portal (CKAN, Socrata or otherwise) was found.
+- The CAS SSO ticket-validation endpoints resolve and return CAS XML, but service registration and account provisioning are restricted to ITB-affiliated applications, and no specification is published for the surface.
+- `journals.itb.ac.id` exposes a **live OAI-PMH 2.0 data provider** (`verb=Identify` and `verb=ListSets` both 200; 20 sets). This surface was not in the June 2026 profile. The co-located OJS REST API is credential-gated (403).
+- **No SAML or Shibboleth federation surface exists.** `shibboleth.itb.ac.id` resolves in DNS but accepts no connection, and the CAS server 404s on both `/cas/idp/metadata` and OIDC discovery.
+- ITB has **no DataCite** provider or repository account (`api.datacite.org` returns 0 records); its DOI registration runs through Crossref.
+- The Ganesha Digital Library (GDL) repository is publicly browseable, but its previously documented OAI-PMH endpoint (`OAI-v2-script.php`) and RSS feed (`gdl.xml`) still return 404 after a platform migration.
+- `lib.itb.ac.id` has degraded from HTTP 200 at the June 2026 review to **HTTP 500 "Database Error"** and is no longer emitted as a pointer.
+- **No CNAME tenancy** was found on any ITB host — `journals`, `login` and `digilib` are plain A records, so no vendor platform is hiding behind an institution hostname.
+- There is no central official ITB GitHub organization — only faculty and student orgs, of which `STEI-ITB` (School of Electrical Engineering and Informatics, 12 public repos, last push 2022) is the verifiable faculty one.
+- All entries reflect only surfaces verified live as of 2026-09-01. No endpoints were fabricated and no vendor contract was saved under ITB's name.
 
 ## Maintainers
 
