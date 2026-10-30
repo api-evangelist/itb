@@ -1,4 +1,4 @@
-# Bandung Institute of Technology (itb)
+# Bandung Institute of Technology
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,74 +64,112 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Institut Teknologi Bandung (ITB) is a public technical university in Bandung, Indonesia. This repository catalogs ITB's public developer and API footprint as an [APIs.json](https://apisjson.org) provider profile. ITB publishes no developer portal, no API gateway and no specification of any kind. Its verifiable institution-operated machine-readable surfaces are two protocol endpoints with no contract behind them — Apereo CAS ticket validation at `login.itb.ac.id` and a live OAI-PMH 2.0 data provider at `journals.itb.ac.id` — plus registry memberships in Crossref and ROR.
+Institut Teknologi Bandung (ITB) is a public technical university in Bandung, Indonesia, and one of the country's oldest and most selective engineering and science institutions. ITB publishes no developer portal, no API gateway, no API terms of service and no specification of any kind — api.itb.ac.id and data.itb.ac.id do not resolve, and no open-data portal was found. What it does operate, on its own domain and its own address space, are two protocol endpoints with no contract behind them: a campus-wide Apereo CAS single sign-on whose ticket-validation endpoints return machine-readable CAS XML, and an Open Journal Systems installation at journals.itb.ac.id that exposes a live, fully open OAI-PMH 2.0 data provider across twenty journal sets. Both are institution-operated; neither is institution-specified — the OJS software and its REST API are the Public Knowledge Project's, and that REST API is credential-gated (403). ITB is additionally a registered Crossref member through its research institute LPPM (member 3613, DOI prefix 10.5614, 6,568 DOIs) and carries a ROR identifier. The Ganesha Digital Library repository is publicly browseable but its historical OAI-PMH and RSS endpoints stayed dead after a platform migration, and the library site lib.itb.ac.id now returns a database error. This profile records institution-operated surfaces with no institution-published contract, which is the honest result rather than a gap to be padded.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/itb/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=itb-api-evangelist&utm_content=repo
+**Areas:** Education · Higher Education · University · Institute of Technology · Research · Indonesia · Southeast Asia · Authentication · SSO · Scholarly Publishing · OAI-PMH · Digital Library
 
-## Type
+## Bandung Institute of Technology on APIs.io
 
-- Index
-- Consumer
-- 3rd-Party
+Everything profiled for Bandung Institute of Technology is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/itb/](https://apis.io/providers/itb/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-Education, Higher Education, University, Institute of Technology, Research, Indonesia, Southeast Asia, Authentication, Single Sign-On, Scholarly Publishing, OAI-PMH, Digital Library, Research Repository
+- [ITB Single Sign-On (CAS)](https://apis.io/apis/itb/sso-cas/) — ITB's campus-wide single sign-on, built on the Apereo CAS (Central Authentication Service) protocol and running on ITB's own host login.itb.ac.id. The CAS…
+- [ITB Journals OAI-PMH](https://apis.io/apis/itb/journals-oai/) — ITB's scholarly journal platform at journals.itb.ac.id, hosted on ITB's own domain and administered by ITB (OAI Identify returns repositoryName "ITB…
+- [Crossref Membership (LPPM ITB)](https://apis.io/apis/itb/crossref-membership/) — ITB is a registered Crossref member through its Institute for Research and Community Services (LPPM), which registers the DOIs for the ITB journal titles…
+- [ROR Registration](https://apis.io/apis/itb/ror-registration/) — ITB is registered in the Research Organization Registry as https://ror.org/00apj8t60 ("Bandung Institute of Technology", acronym ITB, Indonesian label…
 
-## APIs
+### Published properties
 
-Every entry carries an `x-operator` recording **who runs the thing it describes**, which for a university is rarely the same answer as who the data belongs to.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **ITB Single Sign-On (CAS)** — `x-operator: institution`. Campus-wide single sign-on built on the Apereo CAS protocol; `/cas/p3/serviceValidate` returns machine-readable `cas:serviceResponse` XML. Docs: https://login.itb.ac.id/
-- **ITB Journals OAI-PMH** — `x-operator: institution`. Live, unauthenticated OAI-PMH 2.0 data provider across 20 journal sets, on ITB's own host and administered by ITB (`journal@itb.ac.id`). The software is Open Journal Systems 3.2.1.0 from the Public Knowledge Project, so PKP's generic OJS contract is deliberately **not** attributed to ITB. Base URL: https://journals.itb.ac.id/index.php/index/oai
-- **Crossref Membership (LPPM ITB)** — `x-operator: registry`. Member 3613, DOI prefix 10.5614, 6,568 DOIs. A membership fact about ITB, not an ITB-operated API.
-- **ROR Registration** — `x-operator: registry`. https://ror.org/00apj8t60
+#### JSON-LD (1)
 
-## Plans
+Linked-data contexts for the provider's vocabulary.
 
-- [plans/itb-plans-pricing.yml](plans/itb-plans-pricing.yml)
+- [Itb Context](https://apis.io/jsonld/itb/itb-context/)
 
-## Rate Limits
+#### Security (1)
 
-- [rate-limits/itb-rate-limits.yml](rate-limits/itb-rate-limits.yml)
+Authentication, trust centre, and vulnerability disclosure.
 
-## FinOps
+- [Itb Domain Security](https://apis.io/security/itb/itb-domain-security/)
 
-- [finops/itb-finops.yml](finops/itb-finops.yml)
+#### Plans and pricing (1)
 
-## Timestamps
+Published plans, tiers and prices.
 
-- Created: 2026-06-03
-- Modified: 2026-09-01
+- [Itb Plans Pricing](https://apis.io/plans/itb/itb-plans-pricing/)
 
-## Common Properties
+#### Rate limits (1)
 
-- Website: https://itb.ac.id/
-- LinkedIn: https://www.linkedin.com/school/institut-teknologi-bandung/
-- Authentication: https://login.itb.ac.id/
-- Research Repository: https://digilib.itb.ac.id/
-- GitHub Organization: https://github.com/STEI-ITB
-- Blog: https://itb.ac.id/berita
-- Conformance: [conformance/itb-conformance.yml](conformance/itb-conformance.yml)
-- Plans: [plans/itb-plans-pricing.yml](plans/itb-plans-pricing.yml)
-- Rate Limits: [rate-limits/itb-rate-limits.yml](rate-limits/itb-rate-limits.yml)
-- FinOps: [finops/itb-finops.yml](finops/itb-finops.yml)
-- Review: [review.yml](review.yml)
+Published request limits.
 
-## Notes
+- [Itb Rate Limits](https://apis.io/rate-limits/itb/itb-rate-limits/)
 
-- ITB publishes **no developer portal, no API gateway, no OpenAPI/AsyncAPI/apis.json, no `llms.txt` and no API terms of service**. `api.itb.ac.id` and `data.itb.ac.id` do not resolve; no open-data portal (CKAN, Socrata or otherwise) was found.
-- The CAS SSO ticket-validation endpoints resolve and return CAS XML, but service registration and account provisioning are restricted to ITB-affiliated applications, and no specification is published for the surface.
-- `journals.itb.ac.id` exposes a **live OAI-PMH 2.0 data provider** (`verb=Identify` and `verb=ListSets` both 200; 20 sets). This surface was not in the June 2026 profile. The co-located OJS REST API is credential-gated (403).
-- **No SAML or Shibboleth federation surface exists.** `shibboleth.itb.ac.id` resolves in DNS but accepts no connection, and the CAS server 404s on both `/cas/idp/metadata` and OIDC discovery.
-- ITB has **no DataCite** provider or repository account (`api.datacite.org` returns 0 records); its DOI registration runs through Crossref.
-- The Ganesha Digital Library (GDL) repository is publicly browseable, but its previously documented OAI-PMH endpoint (`OAI-v2-script.php`) and RSS feed (`gdl.xml`) still return 404 after a platform migration.
-- `lib.itb.ac.id` has degraded from HTTP 200 at the June 2026 review to **HTTP 500 "Database Error"** and is no longer emitted as a pointer.
-- **No CNAME tenancy** was found on any ITB host — `journals`, `login` and `digilib` are plain A records, so no vendor platform is hiding behind an institution hostname.
-- There is no central official ITB GitHub organization — only faculty and student orgs, of which `STEI-ITB` (School of Electrical Engineering and Informatics, 12 public repos, last push 2022) is the verifiable faculty one.
-- All entries reflect only surfaces verified live as of 2026-09-01. No endpoints were fabricated and no vendor contract was saved under ITB's name.
+#### FinOps (1)
 
-## Maintainers
+What the API costs to run, by operation.
 
-- Kin Lane — kin@apievangelist.com
+- [Itb Finops](https://apis.io/finops/itb/itb-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://itb.ac.id/)
+- [Blog](https://itb.ac.id/berita)
+- [GitHub](https://github.com/STEI-ITB)
+
+## API Evangelist rating
+
+**Kin Score 21.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 17.3 |
+| Contract governance | 18.2 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 5.3 |
+
+**Agent readiness 3.1** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/itb/](https://apis.io/providers/itb/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bandung Institute of Technology: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/itb/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
